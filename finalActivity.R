@@ -115,7 +115,7 @@ stepsWE <- meanInterval %>%
 ### Create time series plots for weekday and weekend activity. 
 # plot weekdays
 par(mfrow=c(2,1))
-par(mar=c(2,2,1,1))
+par(mar=c(4,4,3,1))
 plot(stepsWD$interval,stepsWD$imputedMeanSteps, type = "l",
      lwd = 2, ylim = c(0,225), main = " Average Weekday Steps",
      ylab = " Average Number of Steps", xlab = "Interval", col = "purple")
