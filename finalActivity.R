@@ -45,11 +45,11 @@ raw
 ###    number of steps across all days (y-axis)
 actDataStepsInterval <- actDataNoNa %>%
         group_by(interval)%>%
-        summarise(totalSteps = sum(steps))
+        summarise(totalSteps = mean(steps))
 #plot time series of the median steps for each day
 plot(actDataStepsInterval$interval,actDataStepsInterval$totalSteps, type = "l",
-     col="green", ylab = "Total Steps Taken", xlab = "Time Interval",
-     lwd=2, ylim = c(0,12000), main=" Total Steps per 5 min Interval")
+     col="green", ylab = "Average Steps Taken", xlab = "Time Interval",
+     lwd=2, ylim = c(0,300), main=" Average Steps per 5 min Interval")
 #Which 5-minute interval, on average across all the days in the dataset, 
 #contains the maximum number of steps?
 maxInterval <- filter(actDataStepsInterval,totalSteps==max(totalSteps))
@@ -117,13 +117,13 @@ stepsWE <- meanInterval %>%
 par(mfrow=c(2,1))
 par(mar=c(2,2,1,1))
 plot(stepsWD$interval,stepsWD$imputedMeanSteps, type = "l",
-     lwd = 2, ylim = c(0,225), main = "Weekday Steps",
-     ylab = "Number of Steps", xlab = "Interval", col = "purple")
+     lwd = 2, ylim = c(0,225), main = " Average Weekday Steps",
+     ylab = " Average Number of Steps", xlab = "Interval", col = "purple")
 
 #plot weekends
 plot(stepsWE$interval,stepsWE$imputedMeanSteps, type = "l",
-     lwd = 2, ylim = c(0,225), main = "Weekend Steps",
-     ylab = "Number of Steps", xlab = "Interval", col = "dark green")
+     lwd = 2, ylim = c(0,225), main = " Average Weekend Steps",
+     ylab = "Average Number of Steps", xlab = "Interval", col = "dark green")
 
 
 
